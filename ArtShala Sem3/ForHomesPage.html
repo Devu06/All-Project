@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 0px;
+ /* background-image: url("backgroundtest.jpg"); */
+ /* background: #f1f1f1 ; */
+  background: linear-gradient(to left, #ff0000 -3%, #ffff00 135%);
+}
+
+/* Header/Blog Title */
+.header {
+  
+  width: 100% ;
+  height: 20% ;
+  padding: 2px 0px 0px 0px ;
+  left: 0px;
+  background: rgb(248,246,248) ; 
+  z-index: 3 ;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+.header input[type=text] , .header button {
+  float: right;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  border: none;
+  margin-top: 12px;
+  font-size: 17px;
+ 
+}
+
+
+
+
+
+/*sliding side bar*/
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,111,97,0.95);
+  
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+  
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay-content a:hover{
+  background-color: rgb(255,68,51);
+}
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+
+
+
+
+
+
+/* Style the top navigation bar */
+.topnav {
+
+  overflow: hidden;
+  background: linear-gradient(to right, #ff0000 -3%, #ffff00 135%);
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 20px ;
+  text-decoration: none;
+
+}
+
+.dropdown{
+	
+	float: left ;
+	overflow: hidden ;
+}
+
+.dropdown .dropbtn{
+  font-size: 20px;  
+  border: none;
+  outline: none;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px 20px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Change color on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: rgba(128,0,0,0.6);
+  color: black;
+}
+
+.dropdown-content {
+    
+  
+  display: none;
+  position: absolute;
+  background-color: rgb(255,111,97);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+ 
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(255,68,51);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+  z-index: 2 ;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+ /* background-color: #f1f1f1; */
+  padding-left: 5px;
+  z-index: 2 ;
+}
+
+
+
+
+
+
+
+
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+td,th{
+   padding: 15px 50px 7px 15px ;
+   font-size:15px;
+   text-align: left ;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="slideshow.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/yourcode.js"></script>
+</head>
+<body>
+
+<div class="header">
+ <img src="artshala_logo.jpeg" height="12%" alt="Artshala Logo" width="12%">
+ <button style="margin-right: 12px ; font-size: 18px"><i class="fa fa-search"></i></button><input type="text" placeholder="Search.." style="border: 1px solid rgba(128,0,0,0.6)">
+</div>
+
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+						<a href="#">Acrylic</a>
+						<a href="#">Action</a>
+						<a href="#">Anamophosis</a>
+						<a href="#">Digital</a>
+						<a href="#">Drip</a>
+						<a href="#">Enamel</a>
+						<a href="#">Fine Art</a>
+						<a href="#">Gauche</a>
+						<a href="#">Graffiti</a>
+						<a href="#">Hot Wax</a>
+						<a href="#">Ink Wash</a>
+						<a href="#">Leaf</a>
+						<a href="#">Matte</a>
+						<a href="#">Miniature</a>
+						<a href="#">Oil Painting</a>
+						<a href="#">Pastel</a>
+						<a href="#">Resverse Glass</a>
+						<a href="#">Spray</a>
+						<a href="#">Texture</a>
+						<a href="#">Velvet</a>
+						<a href="#">Water Color</a>
+  </div>
+</div>
+
+
+
+<div class="topnav">
+  <a href="#" onclick="openNav()"><i class="fa fa-navicon fa-fw" style="font-size:22px"></i></a>
+  <div class="dropdown"><button class="dropbtn"> Style &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+						<div class="dropdown-content">
+						<a href="#S1">Abstract</a>
+						<a href="#S2">Chinese</a>
+						<a href="#S3">Cubism</a>
+						<a href="#S4">Eastern</a>
+						<a href="#S5">Expressionism</a>
+						<a href="#S6">Impressionism</a>
+						<a href="#S7">Indian</a>
+						<a href="#S8">Japanese</a>
+						<a href="#S9">Korean</a>
+						<a href="#S10">Modernism</a>
+						<a href="#S11">Mughal</a>
+						<a href="#S12">Nature Art</a>
+						<a href="#S13">Rajasthani</a>
+						<a href="#S14">Surrelism</a>
+						<a href="#S15">Visual Art</a>
+						<a href="#S16">Western</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">Type &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+  						<div class="dropdown-content">
+						<a href="#T1">Acrylic</a>
+						<a href="#T2">Action</a>
+						<a href="#T3">Anamophosis</a>
+						<a href="#T4">Digital</a>
+						<a href="#T5">Drip</a>
+						<a href="#T6">Enamel</a>
+						<a href="#T7">Fine Art</a>
+						<a href="#T8">Gauche</a>
+						<a href="#T9">Graffiti</a>
+						<a href="#T10">Hot Wax</a>
+						<a href="#T11">Ink Wash</a>
+						<a href="#T12">Leaf</a>
+						<a href="#T13">Matte</a>
+						<a href="#T14">Miniature</a>
+						<a href="#T15">Oil Painting</a>
+						<a href="#T16">Pastel</a>
+						<a href="#T17">Resverse Glass</a>
+						<a href="#T18">Spray</a>
+						<a href="#T19">Texture</a>
+						<a href="#T20">Velvet</a>
+						<a href="#T21">Water Color</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">Artists &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+						<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">Subject &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+  						<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">For Homes &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+    					<div class="dropdown-content">
+						<a href="#F1">Bathroom</a>
+						<a href="#F2">Kids Room</a>
+						<a href="#F3">Kitchen</a>
+						<a href="#F4">Living Room</a>
+						<a href="#F5">Master Bedroom</a>
+						<a href="#F6">Office Area</a>
+						</div>
+	</div>
+  
+  <a href="#" style="float:right"><i class="fa fa-shopping-cart fa-fw" style="font-size:22px"></i></a>
+  <a href="#" style="float:right"><i class="fa fa-heart fa-fw" style="font-size:22px"></i></a>
+  <a href="#" style="float:right"><i class="fa fa-user-circle" style="font-size:22px" ></i></a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+  
+      <div class="card" id="F1">
+      <h2>Bathroom</h2>
+  
+      <div class="slideshow-container">
+
+		<div class="mySlides1 fade">
+		  <div class="numbertext">1 / 3</div>
+		  <a target="_blank" href="Bathroom1.jpg"><img src="Bathroom1.jpg" style="width:100%"></a>
+		  <div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides1 fade">
+		  <div class="numbertext">2 / 3</div>
+		  <a target="_blank" href="Bathroom2.jpg"><img src="Bathroom2.jpg" style="width:100%"></a>
+		  <div class="text">Caption Three</div>
+		</div>
+		
+		<div class="mySlides1 fade">
+		  <div class="numbertext">3 / 3</div>
+		  <a target="_blank" href="Bathroom3.jpg"><img src="Bathroom3.jpg" style="width:100%"></a>
+		  <div class="text">Caption Three</div>
+		</div>
+
+		<a class="prev" onclick="plusDivs(-1, 0)">&#10094;</a>
+		<a class="next" onclick="plusDivs(1, 0)">&#10095;</a>
+
+		</div>
+		<br>
+
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1, 0)"></span> 
+		  <span class="dot" onclick="currentSlide(2, 0)"></span> 
+		</div>
+     
+    </div>
+	
+    <div class="card" id="F2">
+      <h2>Kids Room</h2>
+  
+      <div class="slideshow-container">
+
+		<div class="mySlides2 fade">
+		  <div class="numbertext">1 / 3</div>
+		  <a target="_blank" href="Kids1.jpg"><img src="Kids1.jpg" style="width:100%"></a>
+		  <div class="text"">Caption Text</div>
+		</div>
+
+		<div class="mySlides2 fade">
+		  <div class="numbertext">2 / 3</div>
+		  <a target="_blank" href="Kids2.png"><img src="Kids2.png" style="width:100%"></a>
+		  <div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides2 fade">
+		  <div class="numbertext">3 / 3</div>
+		  <a target="_blank" href="Kids3.jpg"><img src="Kids3.jpg" style="width:100%"></a>
+		  <div class="text">Caption Three</div>
+		</div>
+
+		<a class="prev" onclick="plusDivs(-1, 1)">&#10094;</a>
+		<a class="next" onclick="plusDivs(1, 1)">&#10095;</a>
+
+		</div>
+		<br>
+
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1, 1)"></span> 
+		  <span class="dot" onclick="currentSlide(2, 1)"></span> 
+		  <span class="dot" onclick="currentSlide(3, 1)"></span> 
+		</div>
+     
+    </div>
+	
+	
+    <div class="card" id="F3">
+      <h2>Kitchen</h2>
+  
+      <div class="slideshow-container">
+
+		<div class="mySlides3 fade">
+		  <div class="numbertext">1 / 3</div>
+		  <a target="_blank" href="Kitchen1.jpg"><img src="Kitchen1.jpg" style="width:100%"></a>
+		  <div class="text">Caption Text</div>
+		</div>
+
+		<div class="mySlides3 fade">
+		  <div class="numbertext">2 / 3</div>
+		  <a target="_blank" href="Kitchen2.png"><img src="Kitchen2.png" style="width:100%"></a>
+		  <div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides3 fade">
+		  <div class="numbertext">3 / 3</div>
+		  <a target="_blank" href="Kitchen3.jpg"><img src="Kitchen3.jpg" style="width:100%"></a>
+		  <div class="text">Caption Three</div>
+		</div>
+
+		<a class="prev" onclick="plusDivs(-1, 2)">&#10094;</a>
+		<a class="next" onclick="plusDivs(1, 2)">&#10095;</a>
+
+		</div>
+		<br>
+
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1, 2)"></span> 
+		  <span class="dot" onclick="currentSlide(2, 2)"></span> 
+		  <span class="dot" onclick="currentSlide(3, 2)"></span> 
+		</div>
+     
+    </div>
+	
+	<div class="card" id="F4">
+      <h2>Living</h2>
+  
+      <div class="slideshow-container">
+
+		<div class="mySlides4 fade">
+		  <div class="numbertext">1 / 3</div>
+		  <a target="_blank" href="Living1.jpg"><img src="Living1.jpg" style="width:100%"></a>
+		  <div class="text">Caption Text</div>
+		</div>
+
+		<div class="mySlides4 fade">
+		  <div class="numbertext">2 / 3</div>
+		  <a target="_blank" href="Living2.jpg"><img src="Living2.jpg" style="width:100%"></a>
+		  <div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides4 fade">
+		  <div class="numbertext">3 / 3</div>
+		  <a target="_blank" href="Living3.jpg"><img src="Living3.jpg" style="width:100%"></a>
+		  <div class="text">Caption Three</div>
+		</div>
+
+		<a class="prev" onclick="plusDivs(-1, 3)">&#10094;</a>
+		<a class="next" onclick="plusDivs(1, 3)">&#10095;</a>
+
+		</div>
+		<br>
+
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1, 3)"></span> 
+		  <span class="dot" onclick="currentSlide(2, 3)"></span> 
+		  <span class="dot" onclick="currentSlide(3, 3)"></span> 
+		</div>
+     
+    </div>
+	
+	
+	<div class="card" id="F5">
+      <h2>Master Bedroom</h2>
+  
+      <div class="slideshow-container">
+
+		<div class="mySlides5 fade">
+		  <div class="numbertext">1 / 3</div>
+		  <a target="_blank" href="Master1.jpg"><img src="Master1.jpg" style="width:100%"></a>
+		  <div class="text"">Caption Text</div>
+		</div>
+
+		<div class="mySlides5 fade">
+		  <div class="numbertext">2 / 3</div>
+		  <a target="_blank" href="Master2.jpg"><img src="Master2.jpg" style="width:100%"></a>
+		  <div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides5 fade">
+		  <div class="numbertext">3 / 3</div>
+		  <a target="_blank" href="Master3.jpg"><img src="Master3.jpg" style="width:100%"></a>
+		  <div class="text">Caption Three</div>
+		</div>
+
+		<a class="prev" onclick="plusDivs(-1, 4)">&#10094;</a>
+		<a class="next" onclick="plusDivs(1, 4)">&#10095;</a>
+
+		</div>
+		<br>
+
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1, 4)"></span> 
+		  <span class="dot" onclick="currentSlide(2, 4)"></span> 
+		  <span class="dot" onclick="currentSlide(3, 4)"></span> 
+		</div>
+     
+    </div>
+	
+
+	<div class="card" id="F6">
+      <h2>Office Area</h2>
+  
+      <div class="slideshow-container">
+
+		<div class="mySlides6 fade">
+		  <div class="numbertext">1 / 3</div>
+		  <a target="_blank" href="Office1.jpg"><img src="Office1.jpg" style="width:100%"></a>
+		  <div class="text"">Caption Text</div>
+		</div>
+
+		<div class="mySlides6 fade">
+		  <div class="numbertext">2 / 3</div>
+		  <a target="_blank" href="Office2.jpg"><img src="Office2.jpg" style="width:100%"></a>
+		  <div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides6 fade">
+		  <div class="numbertext">3 / 3</div>
+		  <a target="_blank" href="Office3.jpg"><img src="Office3.jpg" style="width:100%"></a>
+		  <div class="text">Caption Three</div>
+		</div>
+
+		<a class="prev" onclick="plusDivs(-1, 5)">&#10094;</a>
+		<a class="next" onclick="plusDivs(1, 5)">&#10095;</a>
+
+		</div>
+		<br>
+
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1, 5)"></span> 
+		  <span class="dot" onclick="currentSlide(2, 5)"></span> 
+		  <span class="dot" onclick="currentSlide(3, 5)"></span> 
+		</div>
+     
+    </div>
+	
+
+	
+
+	
+
+
+
+
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div> 
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">				<!For Tables in the footer division >
+<table style="width:100% ; float:left ; margin-bottom:20px ; margin-top:30px ">
+<caption  align="bottom"><strong>Copyright &nbsp<i class="fa fa-copyright" style="font-size:20px"></i>&nbsp 2019 All rights reserved - artSHALA.com</strong></caption>
+<tr><th><h3>About</h3></th><th><h3>Help</h3></th><th><h3>Policy</h3></th><th><h3>Social</h3></th><th style="padding:15px 50px 7px 35px"><h3>Mail Us</h3></th><th><h3>Registeration Office</h3></th></tr>
+<tr><td><a href="#" >Contact Us</a></td><td><a href="#" >Payment</a></td><td><a href="#" >Return Policy</a></td><td style="border-right:1px solid black "><a href="#" >Facebook</a></td><td rowspan="5" style=" font-size:15px ; padding:13px 30px 100px 33px ">Artshala Internet Private Limited,<br>Buildings Alyssa, Begonia & <br> Clove Embassy Tech Village,<br>Outer Ring Road,<br>Devarabeesanahalli Village,<br>Bengaluru, 560103,<br>Karnataka, India.</td><td rowspan="5"></td></tr>
+<tr><td><a href="#" >About Us</a></td><td><a href="#" >Shipping</a></td><td><a href="#" >Term Of Use</a></td><td style="border-right:1px solid black "><a href="#" >Instagram</a></td></tr>
+<tr><td><a href="#" >Careers Us</a></td><td><a href="#" >Cancelation & return</a></td><td><a href="#" >Security</a></td><td style="border-right:1px solid black "><a href="#" >Twitter</a></td></tr>
+<tr><td></td><td><a href="#" >FAQ</a></td><td><a href="#" >Privacy</a></td><td><a href="#" >Youtube</a></td></tr>
+<tr style="margin-bottom:25px"><td></td><td style="padding-bottom:10px" ><a href="#" >Report Infringement</a></td><td></td><td></td></tr>
+</table>
+
+</div>
+
+<script>
+
+
+var slideIndex = [1,1,1,1,1,1];
+
+var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5", "mySlides6"] ;
+
+showDivs(1, 0); showDivs(1, 1); showDivs(1, 2); showDivs(1, 3); showDivs(1, 4); showDivs(1, 5);  
+
+function plusDivs(n, no) {
+  showDivs(slideIndex[no] += n, no);
+}
+
+function currentDiv(n, no) {
+  showDivs(slideIndex = n, no);
+}
+
+function showDivs(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+}
+
+
+function openNav() {
+  document.getElementById("myNav").style.width = "21.5%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+</script>
+
+</body>
+</html>
+
+

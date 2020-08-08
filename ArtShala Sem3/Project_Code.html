@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--
+COLLIBRI : - ITS a website that tellls the best way to design framework of website.
+-->
+
+<html>
+    <head>
+        <title> artshala.co.in </title>
+        <link rel="stylesheet" href="cssproject/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Mukta|Satisfy&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="jqueryui/jquery-ui.css">
+        <link rel="stylesheet" href="jqueryui/jquery-ui.structure.css">
+        <link rel="stylesheet" href="jqueryui/jquery-ui.theme.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    
+    <body id="body">                                                            
+        <div id="sidebar">
+            <div id="sidebartop">
+                <img src="images/login2.png" id="sidebarloginimage"> 
+                 <strong><span id="sidebartoptext">Hello. Sign in</span></strong>
+             </div>
+            <strong><span id="sidebartopclose" onclick="hidesidebar();">&#9747</span></strong>
+        </div>
+        <div id="topbar">
+
+            <div id="all" onclick="hidesidebar();"> </div>
+
+            <div id="login_signupcontainer" onclick="hidelogin_signup();"> </div>
+
+            <div id="login_signup">
+                
+                <span id="closelogin_signup" onclick="hidelogin_signup();">&#9747</span>
+
+                <div id="login_signup_left">
+
+                    <div id="login_signup_logo">
+                    <span id="login_signup_logoleft">art</span>
+                    <span id="login_signup_logoright">शाला</span>
+                    </div>
+
+                    <p class="login_signup_para1">Login</p>
+                    <p class="login_signup_para2"> Get access to your Orders, Wishlist and Recommendations</p>
+
+                    <div id="login_Signup_quote">
+
+                        <p class="login_signup_para3">
+                            <span class="login_signup_para3_doublecodes1">&#8220;</span>
+                            <span id="quotetext">Painting is a blind man's profession. He paints not what he sees, but what he feels, what he tells himself about what he has seen.</span>
+                            <span class="login_signup_para3_doublecodes2">&#8221;</span>
+                        </p>
+                        <p class="login_signup_para4">Pablo Picasso</p>
+
+                        <p class="login_signup_para3">
+                                <span class="login_signup_para3_doublecodes1">&#8220;</span>
+                                <span id="quotetext">Painting is an illusion, a piece of magic, so what you see is not what you see.</span>
+                                <span class="login_signup_para3_doublecodes2">&#8221;</span>
+                        </p>
+                        <p class="login_signup_para4">Philip Guston</p>
+
+                        <p class="login_signup_para3">
+                                <span class="login_signup_para3_doublecodes1">&#8220;</span>
+                                <span id="quotetext">There is no abstract art. You must always start with something. After ward you can remove all traces of reality.</span>
+                                <span class="login_signup_para3_doublecodes2">&#8221;</span>
+                        </p>
+                        <p class="login_signup_para4">Pablo Picasso</p>
+
+                        <p class="login_signup_para3">
+                                <span class="login_signup_para3_doublecodes1">&#8220;</span>
+                                <span id="quotetext">Painting is a blind man's profession. He paints not what he sees, but what he feels, what he tells himself about what he has seen.</span>
+                                <span class="login_signup_para3_doublecodes2">&#8221;</span>
+                        </p>
+                        <p class="login_signup_para4">Pablo Picasso</p>
+
+                        <p class="login_signup_para3">
+                                <span class="login_signup_para3_doublecodes1">&#8220;</span>
+                                <span id="quotetext">Painting is a blind man's profession. He paints not what he sees, but what he feels, what he tells himself about what he has seen.</span>
+                                <span class="login_signup_para3_doublecodes2">&#8221;</span>
+                        </p>
+                        <p class="login_signup_para4">Pablo Picasso</p>
+       
+                    </div>
+                </div>
+
+                <div id="login_signup_right">
+                    <div id="login_form_container" style="text-align: center; display:none">
+                        <form onsubmit="return login_validate();" action="" name="login_form1" method="POST" id="login_form">
+                
+                            <i class="fa fa-user-circle" id="login_form_userid_icon"></i>
+
+                            <div id="login_form_userid_container">
+                                <input type="text" id="login_form_userid" >
+                                <label for="login_form_userid" id="login_form_label1">Enter Email</label>
+                                <span id="login_signup_userid_validate">Email id cannot be empty</span>
+                            </div>
+
+                            <i class="fa fa-lock" aria-hidden="true" id="login_form_pass_icon"></i>
+
+                            <div id="login_form_password_container">
+                                <input type="password" id="login_form_password" >
+                                <label for="login_form_password" id="login_form_label2">Enter Password</label>
+                                <span id="login_signup_pass_validate">Email id cannot be empty</span>
+                                <br><a href="#" id="login_form_forgot_password">Forgot Password</a>
+                            </div>
+                            <div id="login_form_submit_container">
+                                <br>
+                                <button type="submit" id="login_form_submit" value="Login">Login</button>
+                            </div>
+                            <div id="login_signup_hr">
+                                <hr noshade size="0.5px">
+                                Or Login using
+                            </div>
+                            <div id="login_signup_icons">
+                                <a href="#"><img src="images/login_google.png" alt="google" id="login_signup_google_icon" title="Google"></a>
+                                <a href="#"><img src="images/login_fb.png" alt="fb" id="login_signup_fb_icon" title="Facebook"></a>
+                            </div>
+                            <div class="login_signup_flip">
+                                <a href="#" class="login_signup_flip_text"><span>New to artshala? Create an account</span></a>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="signup_form_container" style="text-align: center;">
+                        <form onsubmit="return signup_validate();" action="" name="signup_form1" method="POST" id="signup_form" >
+
+                            <div id="signup_form_name_container">
+                                <input type="text" id="signup_form_name">
+                                <label for="signup_form_name" id="signup_form_label1">Enter your name</label>
+                                <span id="signup_name_validate">Name cannot be empty</span>
+                                <i class="fa fa-hand-o-right" aria-hidden="true" id="signup_form_name_icon"></i>
+                            </div>
+
+                            <div id="signup_form_userid_container">
+                                <input type="text" id="signup_form_userid">
+                                <label for="signup_form_userid" id="signup_form_label2">Enter your Email</label>
+                                <span id="signup_userid_validate">Userid cannot be empty</span>
+                                <i class="fa fa-user-circle" id="signup_form_userid_icon"></i>
+                            </div>
+
+                            <div id="signup_form_password_container">
+                                <input type="password" id="signup_form_password" title="Password must be between 8 to 12 characters and should contain atleast 1 Uppercase ,1 Lowercase,1 Number and 1 Special Character">
+                                <label for="signup_form_password" id="signup_form_label3" title="Password must be between 8 to 12 characters and should contain atleast 1 Uppercase ,1 Lowercase,1 Number and 1 Special Character">Create Password</label>
+                                <span id="signup_password_validate">Password cannot be empty</span>
+                                <i class="fa fa-lock" aria-hidden="true" id="signup_form_pass_icon"></i>
+                            </div>
+
+                            <div id="signup_form_confirmpassword_container">
+                                <input type="password" id="signup_form_confirmpassword">
+                                <label for="signup_form_confirmpassword" id="signup_form_label4">Confirm Password</label>
+                                <span id="signup_confirmpassword_validate">Password cannot be empty</span>
+                                <i class="fa fa-check" aria-hidden="true" id="signup_form_confirmpass_icon"></i>
+                            </div>
+
+                            <div id="signup_form_mbno_container">
+                                <input type="text" id="signup_form_mbno">
+                                <label for="signup_form_mbno" id="signup_form_label5">Enter Mobile no.</label>
+                                <span id="signup_mbno_validate">Userid cannot be empty</span>
+                                <i class="fa fa-mobile" aria-hidden="true" id="signup_form_mbno_icon"></i>
+                            </div>
+                            <div id="signup_form_submit_container">
+                                <br>
+                                <button type="submit" id="signup_form_submit" value="Login">Signup</button>
+                            </div>
+                            <div class="login_signup_flip" style="left:12%;bottom:8%;">
+                                    <a href="#" class="login_signup_flip_text"><span>Already have an account? Login here</span></a>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="signup_form_side">
+                        <br><br><br>
+                        <span>OR</span><br>
+                        <br><span>Signup Using</span><br><br>
+                        <a href="#"><img src="images/login_google.png" alt="google" id="signup_side_google_icon" title="Google"></a>
+                        <a href="#"><img src="images/login_fb.png" alt="fb" id="signup_side_fb_icon" title="Facebook"></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <a id="trigramtopbar" onclick="showsidebar();">&#9776</a>
+
+            <a href="#" ><img src="images/artshala_logo.jpeg" id="logoimgtopbar" alt="artशाला" title=""></a>
+
+            <input type="text" placeholder="Search the Store" id="searchtopbar">
+
+            <span id="cartspan"><a href="#"><img src="images/shopping-cart-of-checkered-design.png" class="elementtopbar" style="position: relative;margin-right:28px;"id="cart" alt="Cart"></a>
+            <span id="tooltipcart">Cart</span></span>
+
+            <label style="position: relative; font-size:29px;margin-left:5px;font-family:monospace;margin-top:5px;float:right">|</label>
+
+            <span id="wishlistspan"><a href="#"><img src="images/wishlist.png" class="elementtopbar" alt="wishlist" id="wishlist" style="margin-right:-3px; border:1px black ;"></a>
+            <span id="tooltipwishlist">Wishlist</span></span>
+            
+            <label style="position:relative; font-size:29px; margin-left:5px; font-family:monospace; margin-top:5px; float:right">|</label>
+
+            <span id="loginimagespan" onclick="login_signup(); change_quote();"><a href="#"><img src="images/login2.png" class="elementtopbar" id="login" alt="login/signup" style="margin-right:-2px"></a>
+            <span id="tooltiploginimage">Login &<br>Signup</span></span>
+
+            <a href="#"><img src="images/searchbutton.png"id="searchbutton" alt="search"></a>
+
+        </div>
+
+        <div id="secondbar">
+        <div class="topnav">
+  <div class="dropdown"><button class="dropbtn"> Style &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+						<div class="dropdown-content">
+						<a href="#S1">Abstract</a>
+						<a href="#S2">Chinese</a>
+						<a href="#S3">Cubism</a>
+						<a href="#S4">Eastern</a>
+						<a href="#S5">Expressionism</a>
+						<a href="#S6">Impressionism</a>
+						<a href="#S7">Indian</a>
+						<a href="#S8">Japanese</a>
+						<a href="#S9">Korean</a>
+						<a href="#S10">Modernism</a>
+						<a href="#S11">Mughal</a>
+						<a href="#S12">Nature Art</a>
+						<a href="#S13">Rajasthani</a>
+						<a href="#S14">Surrelism</a>
+						<a href="#S15">Visual Art</a>
+						<a href="#S16">Western</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">Type &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+  						<div class="dropdown-content">
+						<a href="TypePage.html">Acrylic</a>
+						<a href="TypePage.html">Action</a>
+						<a href="TypePage.html">Anamophosis</a>
+						<a href="TypePage.html">Digital</a>
+						<a href="TypePage.html">Drip</a>
+						<a href="TypePage.html">Enamel</a>
+						<a href="TypePage.html">Fine Art</a>
+						<a href="TypePage.html">Gauche</a>
+						<a href="TypePage.html">Graffiti</a>
+						<a href="TypePage.html">Hot Wax</a>
+						<a href="TypePage.html">Ink Wash</a>
+						<a href="TypePage.html">Leaf</a>
+						<a href="TypePage.html">Matte</a>
+						<a href="TypePage.html">Miniature</a>
+						<a href="TypePage.html">Oil Painting</a>
+						<a href="TypePage.html">Pastel</a>
+						<a href="TypePage.html">Resverse Glass</a>
+						<a href="TypePage.html">Spray</a>
+						<a href="TypePage.html">Texture</a>
+						<a href="TypePage.html">Velvet</a>
+						<a href="TypePage.html">Water Color</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">Artists &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+						<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">Subject &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+  						<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+						</div>
+	</div>
+  <div class="dropdown"><button class="dropbtn">For Homes &nbsp<i class="fa fa-caret-down" style="font-size:20px"></i></button>
+    					<div class="dropdown-content">
+						<a href="ForHomesPage.html">Bathroom</a>
+						<a href="ForHomesPage.html">Kids Room</a>
+						<a href="ForHomesPage.html">Kitchen</a>
+						<a href="ForHomesPage.html">Living Room</a>
+						<a href="ForHomesPage.html">Master Bedroom</a>
+						<a href="ForHomesPage.html">Office Area</a>
+						</div>
+	</div>
+        </div>
+
+        <div id="thirdbar"> 
+
+            <div class="mainbar" style="display:block" >
+                <img src="images/mainbar1.jpg" class="mainbarimage">   
+                <a class="prev" onclick="pushslide(-1);">&#10094</a>
+                <a class="prev next"  onclick="pushslide(1);">&#10095</a>
+           </div>
+
+            <div class="mainbar">
+                <img src="images/mainbar2.jpg" class="mainbarimage" style="border-top:5px solid rgb(248, 246, 248);">
+                <a class="prev" onclick="pushslide(-1);">&#10094</a>
+                <a class="prev next"  onclick="pushslide(1);">&#10095</a>
+            </div>
+
+            <div class="mainbar" >
+                <img src="images/mainbar3.jpg" class="mainbarimage">
+                <a class="prev" onclick="pushslide(-1);">&#10094</a>
+                <a class="prev next"  onclick="pushslide(1);">&#10095</a>
+            </div>
+
+            <div class="mainbar" >
+                <img src="images/mainbar4.jpg" class="mainbarimage">
+                <a class="prev" onclick="pushslide(-1);">&#10094</a>
+                <a class="prev next"  onclick="pushslide(1);">&#10095</a>
+            </div>
+
+            <div class="mainbar" style="border-top:4px solid rgb(248, 246, 248);" >
+                <img src="images/mainbar5.jpg" class="mainbarimage">
+                <a class="prev" onclick="pushslide(-1);">&#10094</a>
+                <a class="prev next"  onclick="pushslide(1);">&#10095</a>
+            </div>
+
+            <div class="mainbar" >
+                <img src="images/mainbar6.png" class="mainbarimage" >
+                <a class="prev" onclick="pushslide(-1);">&#10094</a>
+                <a class="prev next"  onclick="pushslide(1);">&#10095</a>
+            </div>
+
+        </div>
+        <div style="text-align: center; user-select: none;">
+            <span class="dot" style="background-color: rgba(0, 0, 0, 0.69)" onclick="show(0)"></span>
+            <span class="dot" onclick="show(1)"></span>
+            <span class="dot" onclick="show(2)"></span>
+            <span class="dot" onclick="show(3)"></span>
+            <span class="dot" onclick="show(4)"></span>
+            <span class="dot" onclick="show(5)"></span>
+        </div>
+
+        <div style="height: 1000px">
+	<div class="card" id="S5">
+        <h2>Expressionism</h2>
+    
+        <div class="slideshow-container">
+  
+          <div class="mySlides5 fade">
+            <div class="numbertext">1 / 3</div>
+            <a target="_blank" href="Expressionism1.jpg"><img src="Expressionism1.jpg" style="width:100%"></a>
+            <div class="text">Caption Text</div>
+          </div>
+  
+          <div class="mySlides5 fade">
+            <div class="numbertext">2 / 3</div>
+            <a target="_blank" href="Expressionism2.jpg"><img src="Expressionism2.jpg" style="width:100%"></a>
+            <div class="text">Caption Two</div>
+          </div>
+  
+          <div class="mySlides5 fade">
+            <div class="numbertext">3 / 3</div>
+            <a target="_blank" href="Expressionism3.jpg"><img src="Expressionism3.jpg" style="width:100%"></a>
+            <div class="text">Caption Three</div>
+          </div>
+  
+          <a class="prev" onclick="plusDivs(-1, 4)">&#10094;</a>
+          <a class="next" onclick="plusDivs(1, 4)">&#10095;</a>
+  
+          </div>
+          <br>
+  
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1, 4)"></span> 
+            <span class="dot" onclick="currentSlide(2, 4)"></span> 
+            <span class="dot" onclick="currentSlide(3, 4)"></span> 
+          </div>
+       
+      </div>
+      
+        </div>
+        <div class="footer">				<!For Tables in the footer division >
+            <table style="width:100% ; float:left ; margin-bottom:20px ; margin-top:30px ">
+            <caption  align="bottom"><strong>Copyright &nbsp<i class="fa fa-copyright" style="font-size:20px"></i>&nbsp 2019 All rights reserved - artSHALA.com</strong></caption>
+            <tr><th><h3>About</h3></th><th><h3>Help</h3></th><th><h3>Policy</h3></th><th><h3>Social</h3></th><th style="padding:15px 50px 7px 35px"><h3>Mail Us</h3></th><th><h3>Registeration Office</h3></th></tr>
+            <tr><td><a href="#" >Contact Us</a></td><td><a href="#" >Payment</a></td><td><a href="#" >Return Policy</a></td><td style="border-right:1px solid black "><a href="#" >Facebook</a></td><td rowspan="5" style=" font-size:15px ; padding:13px 30px 100px 33px ">Artshala Internet Private Limited,<br>Buildings Alyssa, Begonia & <br> Clove Embassy Tech Village,<br>Outer Ring Road,<br>Devarabeesanahalli Village,<br>Bengaluru, 560103,<br>Karnataka, India.</td><td rowspan="5"></td></tr>
+            <tr><td><a href="#" >About Us</a></td><td><a href="#" >Shipping</a></td><td><a href="#" >Term Of Use</a></td><td style="border-right:1px solid black "><a href="#" >Instagram</a></td></tr>
+            <tr><td><a href="#" >Careers Us</a></td><td><a href="#" >Cancelation & return</a></td><td><a href="#" >Security</a></td><td style="border-right:1px solid black "><a href="#" >Twitter</a></td></tr>
+            <tr><td></td><td><a href="#" >FAQ</a></td><td><a href="#" >Privacy</a></td><td><a href="#" >Youtube</a></td></tr>
+            <tr style="margin-bottom:25px"><td></td><td style="padding-bottom:10px" ><a href="#" >Report Infringement</a></td><td></td><td></td></tr>
+            </table>
+            
+        </div>
+    </body>
+</html>
+<script>
+
+
+    var slideIndex = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+    
+    var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5", "mySlides6", "mySlides7", "mySlides8", "mySlides9", "mySlides10" ,"mySlides11", "mySlides12", "mySlides13", "mySlides14", "mySlides15", "mySlides16"] ;
+    
+    showDivs(1, 0); showDivs(1, 1); showDivs(1, 2); showDivs(1, 3); showDivs(1, 4); showDivs(1, 5); showDivs(1, 6); showDivs(1, 7); showDivs(1, 8); showDivs(1, 9); showDivs(1, 10); showDivs(1, 11); showDivs(1, 12); showDivs(1, 13); showDivs(1, 14); showDivs(1, 15); 
+    
+    function plusDivs(n, no) {
+      showDivs(slideIndex[no] += n, no);
+    }
+    
+    function currentDiv(n, no) {
+      showDivs(slideIndex = n, no);
+    }
+    
+    function showDivs(n, no) {
+      var i;
+      var x = document.getElementsByClassName(slideId[no]);
+      if (n > x.length) {slideIndex[no] = 1}
+      if (n < 1) {slideIndex[no] = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex[no]-1].style.display = "block";  
+    }
+</script>    
+<script src="JavaScriptproject/jquery.js"></script>
+<script src=JavaScriptproject/jqueryui/jquery-ui.js></script>
+<script src="JavaScriptproject/javascript.js"></script>
